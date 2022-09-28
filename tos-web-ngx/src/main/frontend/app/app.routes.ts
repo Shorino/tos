@@ -1,10 +1,7 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './component/partial/page/home/home.component';
 
 export const routes: Routes = [
-  
-  { path: 'home', loadChildren: './home/home.module#HomeModule' },
-  { path: 'test', loadChildren: './test/test.module#TestModule' },
-    
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home' },
+  {path:"", component:HomeComponent},
+  {path:"search-tea-session/:teaSessionName", component:HomeComponent},
 ];

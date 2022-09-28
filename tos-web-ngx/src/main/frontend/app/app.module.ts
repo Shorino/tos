@@ -19,6 +19,8 @@ import { AppComponent } from './app.component';
 
 
 import '../styles/theme.scss';
+import { HeaderComponent } from './component/partial/header/header.component';
+import { HomeComponent } from './component/partial/page/home/home.component';
 
 
 /**
@@ -31,7 +33,11 @@ import '../styles/theme.scss';
  */
 @NgModule({
   bootstrap: [ AppComponent ],
-  declarations: [ AppComponent ],
+  declarations: [ 
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+  ],
   imports: [ /** import Angular's modules **/
     BrowserModule,
     HttpModule,

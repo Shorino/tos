@@ -14,6 +14,8 @@ trait TeaSessionService {
 
   def getPublicSummary(): List[TeaSessionSummaryBean]
 
+  def getByName(name:String): List[TeaSessionSummaryBean]
+
   def get(teaSessionId: Long): TeaSessionHidePasswordBean
 
   def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Unit

@@ -1,0 +1,15 @@
+<ul>
+    <li *ngFor="let teaSession of teaSessions">
+        <a routerLink="/tea-session/{{teaSession.teaSessionId}}">
+            <img src="data:image/png;base64,{{teaSession.menu}}" alt="{{teaSession.name}}">
+            <div class="content">
+                <div class="name">
+                    {{teaSession.name}}
+                </div>
+                <div class="description">
+                    {{teaSession.description}}
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

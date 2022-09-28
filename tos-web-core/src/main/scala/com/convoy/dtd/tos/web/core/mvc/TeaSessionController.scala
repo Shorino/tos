@@ -35,6 +35,16 @@ private[mvc] class TeaSessionController
     }
   }
 
+  @RequestMapping(value = Array("get-by-name"))
+  def getByName(@RequestBody name:String): Response = {
+    try {
+      new Response(teaSessionService.getByName(name))
+    }
+    catch {
+      case e: Throwable => new Response(null, false, e.getMessage)
+    }
+  }
+
   @RequestMapping(value = Array("get/{teaSessionId}"))
   def get(@PathVariable("teaSessionId") teaSessionId: Long): Response = {
     try{

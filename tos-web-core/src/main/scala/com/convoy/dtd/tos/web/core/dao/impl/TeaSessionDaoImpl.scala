@@ -15,4 +15,9 @@ private[impl] class TeaSessionDaoImpl extends AbstractGenericDao[TeaSessionBean,
     val q = new JPAQueryFactory(entityManager)
     q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.visibility === visibility).fetch().asScala.toList
   }
+
+  override def findByName(name: String): List[TeaSessionBean] = {
+    val q = new JPAQueryFactory(entityManager)
+    q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.name.containsIgnoreCase(name)).fetch().asScala.toList
+  }
 }

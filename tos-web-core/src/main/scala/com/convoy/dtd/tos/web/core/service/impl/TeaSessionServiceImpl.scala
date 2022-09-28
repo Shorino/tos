@@ -72,6 +72,12 @@ class TeaSessionServiceImpl extends TeaSessionService {
   }
 
   @Transactional
+  override def getByName(name: String): List[TeaSessionSummaryBean] = {
+    var teaSessions = teaSessionDao.findByName(name)
+    teaSessions.map(teaSession => teaSession.getSummary())
+  }
+
+  @Transactional
   override def get(teaSessionId: Long): TeaSessionHidePasswordBean = {
     var teaSessionOption = teaSessionDao.getById(teaSessionId)
     if (teaSessionOption.isDefined) teaSessionOption.get.hidePassword(userDao.getById(teaSessionOption.get.createdBy).get.username)
