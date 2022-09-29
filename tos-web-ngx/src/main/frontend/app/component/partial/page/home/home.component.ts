@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Response } from "../../../../model/Response";
 import { TeaSession } from "../../../../model/tea-session/TeaSession";
@@ -13,20 +13,26 @@ import { TeaSessionService } from "../../../../service/teasession.service";
 export class HomeComponent implements OnInit {
   teaSessions:TeaSession[] = [];
 
-  constructor(private teaSessionService:TeaSessionService, activatedRoute:ActivatedRoute) {
+  constructor(private teaSessionService:TeaSessionService,
+    private router: Router,
+    activatedRoute:ActivatedRoute) {
     let observable:Observable<Response>;
     activatedRoute.params.subscribe(params=>{
       if(params.teaSessionName){
-        observable = this.teaSessionService.getByName(params.teaSessionName)
+        observable = this.teaSessionService.getByName(params.teaSessionName);
       }
       else{
         observable = this.teaSessionService.getPublicSummary();
       }
-    });
-    observable.subscribe(response=>{
-      if(response.status) this.teaSessions = response.data;
+      observable.subscribe(response=>{
+        if(response.status) this.teaSessions = response.data;
+      });
     });
   }
 
   ngOnInit(): void {}
+
+  searchTeaSession(teaSessionName:string){
+    this.router.navigateByUrl("/search-tea-session/" + teaSessionName);
+}
 }

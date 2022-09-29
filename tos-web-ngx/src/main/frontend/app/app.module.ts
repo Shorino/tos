@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
 import '../styles/theme.scss';
 import { HeaderComponent } from './component/partial/header/header.component';
 import { HomeComponent } from './component/partial/page/home/home.component';
+import { SearchComponent } from './component/partial/search/search.component';
 
 
 /**
@@ -37,11 +38,12 @@ import { HomeComponent } from './component/partial/page/home/home.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    SearchComponent,
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(routes, { useHash: false, enableTracing :true, preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, { useHash: false, enableTracing :false, preloadingStrategy: PreloadAllModules }),
     ServiceModule,
   ],
 })
