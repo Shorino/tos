@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Respond } from "../../../model/Respond";
-import { TeaSession } from "../../../model/tea-session/TeaSession";
-import { TeaSessionService } from "../../../service/teasession.service";
+import { TeaSessionSummary } from "../../../model/tea-session/TeaSessionSummary";
+import { TeaSessionService } from "../../../service/tea-session.service";
 
 @Component({
   selector: "app-home",
@@ -11,7 +11,7 @@ import { TeaSessionService } from "../../../service/teasession.service";
   styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
-  teaSessions:TeaSession[] = [];
+  teaSessions:TeaSessionSummary[] = [];
 
   constructor(private teaSessionService:TeaSessionService,
     private router: Router,

@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3rem;
+}
+
+.container>* {
+    min-width: 25rem;
+    max-width: 40rem;
+}
+
+img {
+    border-radius: 3rem;
+    flex: 1 0;
+    object-fit: cover;
+    height: 35rem;
+    margin: 1rem;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0;
+    padding: 2rem;
+    color: black;
+    margin-left: 1rem;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.description {
+    color: #e72929;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.username{
+    text-transform: capitalize;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.username::before {
+    content: "Organized By: ";
+    font-weight: bold;
+}
+
+.treatDate{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.treatDate::before {
+    content: "Treat Date: ";
+    font-weight: bold;
+}
+
+.cutOffDate{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.cutOffDate::before {
+    content: "Registration Cut Off Date: ";
+    font-weight: bold;
+}
+
+.visibility{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.visibility::before {
+    content: "Visibility: ";
+    font-weight: bold;
+}
+
+button {
+    margin-top: 1rem;
+    color: white;
+    background: #e72929;
+    border: none;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 10rem;
+    outline: none;
+}
+
+button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}

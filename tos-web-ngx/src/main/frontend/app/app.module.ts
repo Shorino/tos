@@ -22,6 +22,7 @@ import '../styles/theme.scss';
 import { HeaderComponent } from './component/partial/header/header.component';
 import { HomeComponent } from './component/page/home/home.component';
 import { SearchComponent } from './component/partial/search/search.component';
+import { TeaSessionComponent } from './component/page/tea-session/tea-session.component';
 
 
 /**
@@ -39,6 +40,7 @@ import { SearchComponent } from './component/partial/search/search.component';
     HeaderComponent,
     HomeComponent,
     SearchComponent,
+    TeaSessionComponent
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,

@@ -1,4 +1,4 @@
-export class TeaSession{
+export class TeaSessionSummary{
     teaSessionId:number;
     name:string;
     description:string;

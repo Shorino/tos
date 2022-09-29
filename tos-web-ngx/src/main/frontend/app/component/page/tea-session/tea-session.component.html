@@ -1,0 +1,25 @@
+<div class="container">
+    <img src="data:image/png;base64,{{teaSession.menu}}" alt="{{teaSession.name}}">
+
+    <div class="details">
+        <div class="name">
+            <span>{{teaSession.name}}</span>
+        </div>
+        <div class="description">
+            <span>{{teaSession.description}}</span>
+        </div>
+        <div class="username">
+            <span>{{teaSession.username}}</span>
+        </div>
+        <div class="treatDate">
+            <span>{{teaSession.treatDate.toDateString()}}</span>
+        </div>
+        <div class="cutOffDate">
+            <span>{{teaSession.cutOffDate.toDateString()}}</span>
+        </div>
+        <div class="visibility">
+            <span>{{teaSession.visibility?"Public":"Private"}}</span>
+        </div>
+        <button>Place Order</button>
+    </div>
+</div>
