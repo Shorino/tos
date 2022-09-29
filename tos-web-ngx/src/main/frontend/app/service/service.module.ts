@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TestService } from './test.service';
 import { TeaSessionService } from './tea-session.service';
+import { OrderService } from './order.service';
+import { UserService } from './user.service';
 
 @NgModule({
     imports: [ 
@@ -12,6 +14,8 @@ import { TeaSessionService } from './tea-session.service';
   [
     TestService,
     TeaSessionService,
+    OrderService,
+    UserService,
   ],
 })
 export class ServiceModule {

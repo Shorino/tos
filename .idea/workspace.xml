@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/model/tea-session/TeaSession.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/teasession.service.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
