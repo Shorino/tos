@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { Response } from "../../../../model/Response";
-import { TeaSession } from "../../../../model/tea-session/TeaSession";
-import { TeaSessionService } from "../../../../service/teasession.service";
+import { Respond } from "../../../model/Respond";
+import { TeaSession } from "../../../model/tea-session/TeaSession";
+import { TeaSessionService } from "../../../service/teasession.service";
 
 @Component({
   selector: "app-home",
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private teaSessionService:TeaSessionService,
     private router: Router,
     activatedRoute:ActivatedRoute) {
-    let observable:Observable<Response>;
+    let observable:Observable<Respond>;
     activatedRoute.params.subscribe(params=>{
       if(params.teaSessionName){
         observable = this.teaSessionService.getByName(params.teaSessionName);

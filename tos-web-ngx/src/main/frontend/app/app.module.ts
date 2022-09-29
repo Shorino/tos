@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 
 import '../styles/theme.scss';
 import { HeaderComponent } from './component/partial/header/header.component';
-import { HomeComponent } from './component/partial/page/home/home.component';
+import { HomeComponent } from './component/page/home/home.component';
 import { SearchComponent } from './component/partial/search/search.component';
 
 
