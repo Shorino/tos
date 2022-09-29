@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
         observable = this.teaSessionService.getPublicSummary();
       }
       observable.subscribe(response=>{
-        if(response.status) this.teaSessions = response.data;
+        if(response.status) {
+          this.teaSessions = response.data;
+        }
       });
     });
   }

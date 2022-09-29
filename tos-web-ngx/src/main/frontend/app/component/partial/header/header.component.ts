@@ -9,4 +9,12 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  get loginStatus(){
+    return localStorage.getItem("TOS_USER_INFO")? true: false;
+  }
+
+  removeLoginInfo(){
+    localStorage.removeItem("TOS_USER_INFO");
+  }
 }

@@ -8,11 +8,4 @@ export class TeaSessionHidePassword{
     cutOffDate:Date;
     visibility:boolean;
     menu:string;
-
-    get getTreatDate(){
-        return new Date(this.treatDate);
-    }
-    get getCutOffDate(){
-        return this.cutOffDate.getUTCDate();
-    }
 }

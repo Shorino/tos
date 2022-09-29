@@ -31,6 +31,7 @@ class UserBean {
     this()
     username = userCreationBean.username
     password = userCreationBean.password
+    lastLoginDate = new Date
   }
 
   def print(): Unit = {

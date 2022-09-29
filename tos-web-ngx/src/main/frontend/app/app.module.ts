@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule, Injectable, APP_INITIALIZER } from '@angular/core';
 import { RouterModule, PreloadAllModules, Router } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -23,6 +23,7 @@ import { HeaderComponent } from './component/partial/header/header.component';
 import { HomeComponent } from './component/page/home/home.component';
 import { SearchComponent } from './component/partial/search/search.component';
 import { TeaSessionComponent } from './component/page/tea-session/tea-session.component';
+import { LoginComponent } from './component/page/login/login.component';
 
 
 /**
@@ -40,13 +41,15 @@ import { TeaSessionComponent } from './component/page/tea-session/tea-session.co
     HeaderComponent,
     HomeComponent,
     SearchComponent,
-    TeaSessionComponent
+    TeaSessionComponent,
+    LoginComponent,
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes, { useHash: false, enableTracing :false, preloadingStrategy: PreloadAllModules }),
     ServiceModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppModule {

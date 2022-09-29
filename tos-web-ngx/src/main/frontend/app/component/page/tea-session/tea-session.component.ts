@@ -11,7 +11,7 @@ import { TeaSessionService } from "../../../service/tea-session.service";
   styleUrls: ["./tea-session.component.css"],
 })
 export class TeaSessionComponent implements OnInit {
-    teaSession:TeaSessionHidePassword;
+    teaSession:TeaSessionHidePassword = new TeaSessionHidePassword();
 
     constructor(activatedRoute:ActivatedRoute, private teaSessionService:TeaSessionService){
         let observable:Observable<Respond>;
