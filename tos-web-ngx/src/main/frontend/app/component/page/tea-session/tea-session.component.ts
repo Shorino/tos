@@ -2,9 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { EventData } from "../../../model/order/EventData";
 import { OrderMod } from "../../../model/order/OrderMod";
 import { Respond } from "../../../model/Respond";
 import { TeaSessionHidePassword } from "../../../model/tea-session/TeaSessionHidePassword";
+import { EventService } from "../../../service/event.service";
 import { OrderService } from "../../../service/order.service";
 import { TeaSessionService } from "../../../service/tea-session.service";
 
@@ -27,7 +29,8 @@ export class TeaSessionComponent implements OnInit {
       private teaSessionService:TeaSessionService,
       private orderService:OrderService,
       private formBuilder:FormBuilder,
-      private router:Router){
+      private router:Router,
+      private eventService:EventService){
         let observable:Observable<Respond>;
         activatedRoute.params.subscribe(params=>{
             if(params.teaSessionId){
@@ -78,7 +81,7 @@ export class TeaSessionComponent implements OnInit {
       let observable:Observable<Respond> = this.orderService.create(orderMod);
       observable.subscribe((response) => {
         if (response.status) {
-          alert("Order placed successfully");
+          this.eventService.sendEvent(new EventData("ORDER_PLACED", null));
         }
         else{
           alert(response.statusMessage);

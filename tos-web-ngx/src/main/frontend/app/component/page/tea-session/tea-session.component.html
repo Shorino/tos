@@ -26,9 +26,7 @@
 
     <div *ngIf="placingOrder" class="sub-container">
         <div class="order-list">
-            <div class="title">
-                <span>Order List</span>
-            </div>
+            <app-order></app-order>
         </div>
 
         <form class="order-form" [formGroup]="orderForm" (ngSubmit)="submitOrder()">
@@ -50,7 +48,7 @@
             </div>
         </form>
         
-        <button class="submit-button" (click)="submitOrder()" *ngIf="canPlaceOrder">Confirm Order</button>
+        <button class="submit-button" (click)="submitOrder()" *ngIf="canPlaceOrder">Add To Order</button>
         <button class="cancel-button" (click)="placingOrder=false">Back</button>
     </div>
 </div>

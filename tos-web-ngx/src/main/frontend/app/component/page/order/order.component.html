@@ -1,1 +1,24 @@
-test
+<div class="title">
+    <label>Order List</label>
+</div>
+
+<div class="container">
+    <ul>
+        <li *ngFor="let order of orders">
+            <div>
+                <b>Item name: </b>
+                <input #orderItemName [disabled]="!order.editing" type="text" value="{{order.itemName}}">
+                <b>Quantity: </b>
+                <input #orderQuantity [disabled]="!order.editing" type="number" value="{{order.quantity}}">
+                <b>Username: </b>
+                <input disabled type="text" value="{{order.username}}">
+                <b>Tea Session: </b>
+                <input disabled type="text" value="{{order.teaSessionName}}">
+                <button class="edit-button" *ngIf="!order.editing" (click)="order.editing = true">Edit</button>
+                <button class="edit-button" *ngIf="order.editing" (click)="order.editing = false"
+                (click)="editOrder(order.orderId, orderItemName.value, orderQuantity.value, order.teaSession)">Done</button>
+                <button class="remove-button" (click)="removeOrder(order.orderId)">Remove</button>
+            </div>
+        </li>
+    </ul>
+</div>

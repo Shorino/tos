@@ -1,6 +1,6 @@
 <div>
-    <input #s type="text" 
+    <input #searchTerm type="text" 
     placeholder="{{placeholder}}" 
-    (keyup.enter)="func(s.value)">
-    <button (click)="func(s.value)">{{buttonName}}</button>
+    (keyup.enter)="func(searchTerm.value)">
+    <button (click)="func(searchTerm.value)">{{buttonName}}</button>
 </div>

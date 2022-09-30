@@ -11,4 +11,9 @@ export const TEA_SESSION_GET_BY_NAME_URL = TEA_SESSION_URL + "get-by-name";
 export const TEA_SESSION_GET_BY_ID_URL = TEA_SESSION_URL + "get/";
 
 export const ORDER_URL = BASE_URL + "order/";
+export const ORDER_GET_URL = ORDER_URL + "get-all";
 export const ORDER_CREATE_URL = ORDER_URL + "create";
+export const ORDER_MODIFY_URL = ORDER_URL + "modify/";
+export const ORDER_MODIFY_ADMIN_URL = ORDER_URL + "modify-admin/";
+export const ORDER_DELETE_URL = ORDER_URL + "delete/";
+export const ORDER_DELETE_ADMIN_URL = ORDER_URL + "delete-admin/";

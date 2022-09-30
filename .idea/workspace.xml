@@ -6,21 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/service/UserService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/service/UserService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/mvc/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/mvc/UserController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/UserServiceImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/UserServiceImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/entity/order/OrderShowUsernameBean.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/entity/order/OrderShowUsernameBean.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/OrderServiceImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/OrderServiceImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/search/search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/search/search.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/constant/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/constant/urls.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/model/order/OrderMod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/model/order/OrderMod.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/order.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/tea-session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/tea-session.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,23 +200,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/joelsim/Desktop/Startup Files/Assignment/Testplay/SpringBoot Demo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d9809717ce1e0459b64f0bbf68e57f9b&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\joelsim\\Desktop\\Startup Files\\Assignment\\Project Files\\tos\\tos-web-ngx\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/joelsim/Desktop/Startup Files/Assignment/Testplay/SpringBoot Demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.49080458",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "d9809717ce1e0459b64f0bbf68e57f9b",
+    "ts.external.directory.path": "C:\\Users\\joelsim\\Desktop\\Startup Files\\Assignment\\Project Files\\tos\\tos-web-ngx\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.convoy.dtd.tos.web.core.dao.impl" />

@@ -100,7 +100,11 @@ class OrderServiceImpl extends OrderService {
     }
     orders.map(order => {
       var userOption = userDao.getById(order.createdBy)
-      if (userOption.isDefined) new OrderShowUsernameBean(order.orderId, order.itemName, order.quantity, userOption.get.username, order.teaSession)
+      if (userOption.isDefined) {
+        val teaSessionOption = teaSessionDao.getById(order.teaSession);
+        if(teaSessionOption.isDefined) new OrderShowUsernameBean(order.orderId, order.itemName, order.quantity, userOption.get.username, order.teaSession, teaSessionOption.get.name)
+        else throw new RuntimeException("Tea session with id " + order.teaSession + " does not exists")
+      }
       else throw new RuntimeException("User with id " + userOption.get.userId + " does not exists")
     })
   }
