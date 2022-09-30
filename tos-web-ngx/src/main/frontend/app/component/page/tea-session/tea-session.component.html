@@ -20,11 +20,11 @@
         <div class="visibility">
             <span>{{teaSession.visibility?"Public":"Private"}}</span>
         </div>
-        <button class="submit-button" (click)="placingOrder = true" *ngIf="canPlaceOrder">Place Order</button>
+        <button class="submit-button" (click)="placingOrder = true" *ngIf="canPlaceOrder && userInfo">Place Order</button>
         <button class="cancel-button" type="reset" (click)="goToHomePage()">Back</button>
     </div>
 
-    <div *ngIf="placingOrder" class="sub-container">
+    <div *ngIf="placingOrder && userInfo" class="sub-container">
         <div class="order-list">
             <app-order></app-order>
         </div>

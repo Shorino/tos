@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { OrderMod } from "../../../model/order/OrderMod";
 import { OrderShowUsername } from "../../../model/order/OrderShowUsername";
 import { UserCredential } from "../../../model/user/UserCredential";
@@ -21,8 +21,10 @@ export class OrderComponent implements OnInit {
 
     constructor(private orderService:OrderService, 
       private eventService: EventService,
-      activatedRoute:ActivatedRoute){
+      activatedRoute:ActivatedRoute,
+      router:Router){
       this.userInfo = JSON.parse(localStorage.getItem("TOS_USER_INFO"));
+      if(!this.userInfo) router.navigateByUrl("/");
 
       activatedRoute.params.subscribe(params=>{
         if(params.teaSessionId) this.teaSessionId = params.teaSessionId
@@ -55,7 +57,7 @@ export class OrderComponent implements OnInit {
     }
 
     removeOrder(orderId:number){
-      this.orderService.delete(orderId, new UserCredential(this.userInfo.username, this.userInfo.password)).subscribe(response=>{
+      this.orderService.delete(orderId, new UserCredential(this.userInfo.username, this.userInfo.password), this.userInfo.isAdmin).subscribe(response=>{
         if(response.status){
           this.updateOrders();
         }
@@ -67,7 +69,7 @@ export class OrderComponent implements OnInit {
 
     editOrder(orderId:number, itemName:string, quantity:number, teaSession:number){
       let orderMod = new OrderMod(itemName, quantity, teaSession, this.userInfo.username, this.userInfo.password);
-      this.orderService.modify(orderId, orderMod).subscribe(response=>{
+      this.orderService.modify(orderId, orderMod, this.userInfo.isAdmin).subscribe(response=>{
         if(response.status){
           this.updateOrders();
         }
@@ -75,5 +77,10 @@ export class OrderComponent implements OnInit {
           alert(response.statusMessage);
         }
       });
+    }
+
+    checkAllUsers(enable:boolean){
+      this.getAllUsers = enable;
+      this.updateOrders();
     }
 }

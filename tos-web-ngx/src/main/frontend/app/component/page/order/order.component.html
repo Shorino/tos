@@ -3,6 +3,10 @@
 </div>
 
 <div class="container">
+    <div *ngIf="this.userInfo != null && this.userInfo.isAdmin" class="option">
+        <label>Show all users' orders</label>
+        <input type="checkbox" (change)="checkAllUsers($event.target.checked)">
+    </div>
     <ul>
         <li *ngFor="let order of orders">
             <div>

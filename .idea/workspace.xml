@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/entity/order/OrderShowUsernameBean.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/entity/order/OrderShowUsernameBean.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/OrderServiceImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/OrderServiceImpl.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/order/order.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/search/search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/search/search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/constant/urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/constant/urls.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/model/order/OrderMod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/model/order/OrderMod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/order.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/service.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/partial/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

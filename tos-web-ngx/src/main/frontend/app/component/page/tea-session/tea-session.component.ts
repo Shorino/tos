@@ -18,12 +18,14 @@ import { TeaSessionService } from "../../../service/tea-session.service";
 export class TeaSessionComponent implements OnInit {
     teaSession:TeaSessionHidePassword = new TeaSessionHidePassword();
     canPlaceOrder:boolean = true;
-    placingOrder:boolean = true;
+    placingOrder:boolean = false;
 
     orderForm:FormGroup;
     showItemNameEmptyError:boolean = false;
     showQuantityEmptyError:boolean = false;
     showQuantityMinError:boolean = false;
+
+    userInfo:any = null;
 
     constructor(activatedRoute:ActivatedRoute, 
       private teaSessionService:TeaSessionService,
@@ -31,6 +33,8 @@ export class TeaSessionComponent implements OnInit {
       private formBuilder:FormBuilder,
       private router:Router,
       private eventService:EventService){
+        this.userInfo = JSON.parse(localStorage.getItem("TOS_USER_INFO"));
+
         let observable:Observable<Respond>;
         activatedRoute.params.subscribe(params=>{
             if(params.teaSessionId){
