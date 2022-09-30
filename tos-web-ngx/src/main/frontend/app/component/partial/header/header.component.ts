@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "../../../service/user.service";
 
 @Component({
   selector: "app-header",
@@ -6,15 +7,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private userService:UserService) {}
 
   ngOnInit(): void {}
+
+  removeLoginInfo(){
+    localStorage.removeItem("TOS_USER_INFO");
+  }
 
   get loginStatus(){
     return localStorage.getItem("TOS_USER_INFO")? true: false;
   }
 
-  removeLoginInfo(){
-    localStorage.removeItem("TOS_USER_INFO");
+  get isAdmin(){
+    if(this.loginStatus){
+      return JSON.parse(localStorage.getItem("TOS_USER_INFO")).isAdmin;
+    }
+    else return false;
   }
 }

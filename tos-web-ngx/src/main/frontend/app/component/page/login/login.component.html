@@ -3,8 +3,8 @@
         <label *ngIf="signUp == false" class="title">Login</label>
         <label *ngIf="signUp" class="title">Sign Up</label>
 
-        <form [formGroup]="loginForm" (ngSubmit)="submit()">
-            <div class="input-container">
+        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+            <div>
                 <label>Username</label>
                 <div>
                     <input type="text" placeholder="Enter your username" formControlName="username" (input)="showUsernameEmptyError=false">
@@ -12,13 +12,14 @@
                 <span class="error-message" *ngIf="showUsernameEmptyError">Username shouldn't be empty</span>
             </div>
 
-            <div class="input-container">
+            <div>
                 <label>Password</label>
                 <div>
                     <input type="password" placeholder="Enter your password" formControlName="password" (input)="showPasswordEmptyError=false">
                 </div>
                 <span class="error-message" *ngIf="showPasswordEmptyError">Password shouldn't be empty</span>
             </div>
+
             <button class="submit-button" type="submit">Submit</button>
         </form>
 

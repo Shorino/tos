@@ -9,7 +9,7 @@ trait UserService {
 
   def create(userCreationBean: UserCredentialBean):Unit
 
-  def login(userCredentialBean: UserCredentialBean):Unit
+  def login(userCredentialBean: UserCredentialBean):UserBean
 
   def delete(userCredentialBean: UserCredentialBean):Unit
 

@@ -1,8 +1,8 @@
 <div class="container">
     <img src="data:image/png;base64,{{teaSession.menu}}" alt="{{teaSession.name}}">
 
-    <div class="details">
-        <div class="name">
+    <div *ngIf="!placingOrder" class="sub-container">
+        <div class="title">
             <span>{{teaSession.name}}</span>
         </div>
         <div class="description">
@@ -20,6 +20,37 @@
         <div class="visibility">
             <span>{{teaSession.visibility?"Public":"Private"}}</span>
         </div>
-        <button>Place Order</button>
+        <button class="submit-button" (click)="placingOrder = true" *ngIf="canPlaceOrder">Place Order</button>
+        <button class="cancel-button" type="reset" (click)="goToHomePage()">Back</button>
+    </div>
+
+    <div *ngIf="placingOrder" class="sub-container">
+        <div class="order-list">
+            <div class="title">
+                <span>Order List</span>
+            </div>
+        </div>
+
+        <form class="order-form" [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+            <div>
+                <label>Item Name</label>
+                <div>
+                    <input type="text" placeholder="Enter item name" formControlName="itemName" (input)="showItemNameEmptyError=false">
+                </div>
+                <span class="error-message" *ngIf="showItemNameEmptyError">Item name shouldn't be empty</span>
+            </div>
+
+            <div>
+                <label>Quantity</label>
+                <div>
+                    <input type="number" placeholder=">0" min="{{1}}" value="{{1}}" formControlName="quantity" (input)="showQuantityEmptyError=false; showQuantityMinError=false;">
+                </div>
+                <span class="error-message" *ngIf="showQuantityEmptyError">Quantity shouldn't be empty</span>
+                <span class="error-message" *ngIf="showQuantityMinError">Quantity must be greater than 0</span>
+            </div>
+        </form>
+        
+        <button class="submit-button" (click)="submitOrder()" *ngIf="canPlaceOrder">Confirm Order</button>
+        <button class="cancel-button" (click)="placingOrder=false">Back</button>
     </div>
 </div>

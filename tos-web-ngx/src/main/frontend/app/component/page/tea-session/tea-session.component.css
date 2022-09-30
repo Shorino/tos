@@ -19,7 +19,7 @@ img {
     margin: 1rem;
 }
 
-.details {
+.sub-container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ img {
     color: black;
 }
 
-.name {
+.title {
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: capitalize;
@@ -83,9 +83,8 @@ img {
 }
 
 button {
-    margin-top: 1rem;
     color: white;
-    background: #e72929;
+    margin-top: 1rem;
     border: none;
     font-size: 1.2rem;
     padding: 1rem;
@@ -96,4 +95,25 @@ button {
 button:hover {
     opacity: 0.9;
     cursor: pointer;
+}
+
+.submit-button{
+    background: #e72929;
+}
+
+.cancel-button{
+    background: grey;
+}
+
+.order-list{
+    margin-bottom:1rem;
+}
+
+.order-form{
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+
+.error-message {
+    color: red;
 }

@@ -11,13 +11,13 @@
                     <a *ngIf="loginStatus">User</a>
                     <div class="menu">
                         <a routerLink="/change-password">Change Password</a>
-                        <a routerLink="/manage-users">Manage Users</a>
+                        <a *ngIf="isAdmin" routerLink="/manage-users">Manage Users</a>
                         <a (click)="removeLoginInfo()">Logout</a>
                     </div>
                 </li>
 
                 <li>
-                    <a routerLink="/orders" *ngIf="loginStatus">Orders</a>
+                    <a routerLink="/order" *ngIf="loginStatus">Orders</a>
                 </li>
             </ul>
         </nav>

@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
             username:["", Validators.required],
             password:["", Validators.required]
         });
+        if(localStorage.getItem("TOS_USER_INFO")) router.navigateByUrl("/");
     }
 
     ngOnInit(): void {}
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
         return this.loginForm.controls;
     }
 
-    submit(){
+    submitLogin(){
         if(this.loginForm.invalid) {
             if(this.fc.username.errors){
                 this.showUsernameEmptyError = true;
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
         observable.subscribe(response=>{
             if(response.status){
                 this.router.navigateByUrl("/");
-                localStorage.setItem("TOS_USER_INFO", JSON.stringify(userCredential));
+                localStorage.setItem("TOS_USER_INFO", JSON.stringify(response.data));
             }
             else{
                 alert(response.statusMessage);

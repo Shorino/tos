@@ -27,8 +27,7 @@ private[mvc] class UserController {
   @RequestMapping(value = Array("login"))
   def login(@RequestBody userCreationBean: UserCredentialBean): Response = {
     try {
-      userService.login(userCreationBean)
-      new Response(null)
+      new Response(userService.login(userCreationBean))
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)

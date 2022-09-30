@@ -39,10 +39,15 @@ class UserServiceImpl extends UserService {
   }
 
   @Transactional
-  override def login(userCredentialBean: UserCredentialBean): Unit = validateUserPassword(userCredentialBean, userBeanInDb=>{
-    if(!userBeanInDb.enable && !userBeanInDb.isAdmin) throw new RuntimeException("Username " + userBeanInDb.username + " has been disabled by admin")
-    else userBeanInDb.lastLoginDate = new Date
-  })
+  override def login(userCredentialBean: UserCredentialBean): UserBean = {
+    var userBean:UserBean = null
+    validateUserPassword(userCredentialBean, userBeanInDb=>{
+      if(!userBeanInDb.enable && !userBeanInDb.isAdmin) throw new RuntimeException("Username " + userBeanInDb.username + " has been disabled by admin")
+      userBeanInDb.lastLoginDate = new Date
+      userBean = userBeanInDb
+    })
+    userBean
+  }
 
   @Transactional
   override def delete(userCredentialBean: UserCredentialBean): Unit = validateUserPassword(userCredentialBean, userBeanInDb=>userDao.deleteById(userBeanInDb.userId))

@@ -24,6 +24,7 @@ import { HomeComponent } from './component/page/home/home.component';
 import { SearchComponent } from './component/partial/search/search.component';
 import { TeaSessionComponent } from './component/page/tea-session/tea-session.component';
 import { LoginComponent } from './component/page/login/login.component';
+import { OrderComponent } from './component/page/order/order.component';
 
 
 /**
@@ -43,6 +44,7 @@ import { LoginComponent } from './component/page/login/login.component';
     SearchComponent,
     TeaSessionComponent,
     LoginComponent,
+    OrderComponent,
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,
