@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="details">
+        <label class="title">Create Tea Session</label>
+
+        <form [formGroup]="createSessionForm" (ngSubmit)="submitCreateTeaSession()">
+            <div>
+                <label>Session Name</label>
+                <div>
+                    <input type="text" placeholder="Enter tea session name" formControlName="teaSessionName" (input)="showSessionNameEmptyError=false">
+                </div>
+                <span class="error-message" *ngIf="showSessionNameEmptyError">Tea session name shouldn't be empty</span>
+            </div>
+
+            <div>
+                <label>Password</label>
+                <div>
+                    <input type="password" placeholder="Enter tea session password" formControlName="password">
+                </div>
+            </div>
+
+            <div>
+                <label>Description</label>
+                <div>
+                    <input type="text" placeholder="Enter tea session description" formControlName="description">
+                </div>
+            </div>
+
+            <div>
+                <label>Treat Date</label>
+                <div>
+                    <input type="date" formControlName="treatDate" (input)="showTreatDateEmptyError=false">
+                </div>
+                <span class="error-message" *ngIf="showTreatDateEmptyError">Treat date shouldn't be empty</span>
+            </div>
+
+            
+            <div>
+                <label>Registration Cut Off Date</label>
+                <div>
+                    <input type="date" formControlName="cutOffDate" (input)="showCutOffDateEmptyError=false">
+                </div>
+                <span class="error-message" *ngIf="showCutOffDateEmptyError">Cut off date shouldn't be empty</span>
+            </div>
+
+            <div>
+                <label>Public Session?</label>
+                <input type="checkbox" formControlName="visibility">
+            </div>
+            
+            <div>
+                <label>Upload Menu</label>
+                <input type="file" accept="image/*" (input)="updateMenu($event)">
+            </div>
+            <span class="error-message" *ngIf="showMenuEmptyError">Menu shouldn't be empty</span>
+
+            <button class="submit-button" type="submit" [disabled]="submittingForm">Submit</button>
+        </form>
+
+        <div>
+            <label *ngIf="signUp == false">Don't have account? <button (click)="signUp = true">Sign Up</button></label>
+            <label *ngIf="signUp">Already have account? <button (click)="signUp = false">Login</button></label>
+        </div>
+    </div>
+</div>

@@ -58,8 +58,8 @@ private[mvc] class TeaSessionController
   @RequestMapping(value = Array("create"))
   def create(@RequestBody teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Response = {
     try {
-      teaSessionService.create(teaSessionShowUsernameBean)
-      new Response(null)
+
+      new Response(teaSessionService.create(teaSessionShowUsernameBean))
     } catch {
       case e: Throwable => new Response(null, false, e.getMessage)
     }

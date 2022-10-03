@@ -85,7 +85,7 @@ class TeaSessionServiceImpl extends TeaSessionService {
   }
 
   @Transactional
-  override def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Unit = {
+  override def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Long = {
     validateDate(teaSessionShowUsernameBean, ()=>{
       val teaSessionBean = new TeaSessionBean(
         teaSessionShowUsernameBean.name,
@@ -99,6 +99,7 @@ class TeaSessionServiceImpl extends TeaSessionService {
       teaSessionBean.password = teaSessionShowUsernameBean.password
       teaSessionDao.add(teaSessionBean)
     })
+    teaSessionDao.getLastId
   }
 
   @Transactional

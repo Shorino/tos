@@ -1,3 +1,4 @@
+import { InvokeFunctionExpr } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
@@ -36,5 +37,10 @@ export class HomeComponent implements OnInit {
 
   searchTeaSession(teaSessionName:string){
     this.router.navigateByUrl("/search-tea-session/" + teaSessionName);
-}
+  }
+
+  goToCreateSession(){
+    if(localStorage.getItem("TOS_USER_INFO")) this.router.navigateByUrl("/create-session");
+    else this.router.navigateByUrl("/login");
+  }
 }

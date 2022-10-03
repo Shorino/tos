@@ -30,3 +30,27 @@ li a img {
     font-size: 1.5rem;
     text-transform: capitalize;
 }
+
+button {
+    border-radius: 5rem 5rem 5rem 5rem;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #e72929;
+    color: white;
+    opacity: 0.8;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.create-tea-session{
+    margin-right: 3.3rem;
+    position:relative;
+    top: -3rem;
+    width: 10rem;
+    float: right;
+}

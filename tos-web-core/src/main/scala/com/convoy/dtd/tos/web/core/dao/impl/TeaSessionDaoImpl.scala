@@ -4,6 +4,7 @@ import com.convoy.dtd.johnston.domain.jpa.dao.AbstractGenericDao
 import com.convoy.dtd.tos.web.api.entity.QTeaSessionBean
 import com.convoy.dtd.tos.web.api.entity.teasession.TeaSessionBean
 import com.convoy.dtd.tos.web.core.dao.TeaSessionDao
+import com.querydsl.core.types.{Order, OrderSpecifier}
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Repository
 
@@ -19,5 +20,10 @@ private[impl] class TeaSessionDaoImpl extends AbstractGenericDao[TeaSessionBean,
   override def findByName(name: String): List[TeaSessionBean] = {
     val q = new JPAQueryFactory(entityManager)
     q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.name.containsIgnoreCase(name)).fetch().asScala.toList
+  }
+
+  override def getLastId(): Long = {
+    val q = new JPAQueryFactory(entityManager)
+    q.selectFrom(QTeaSessionBean).select(QTeaSessionBean.teaSessionId.max).fetchOne()
   }
 }

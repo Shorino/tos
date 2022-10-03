@@ -25,6 +25,7 @@ import { SearchComponent } from './component/partial/search/search.component';
 import { TeaSessionComponent } from './component/page/tea-session/tea-session.component';
 import { LoginComponent } from './component/page/login/login.component';
 import { OrderComponent } from './component/page/order/order.component';
+import { CreateSessionComponent } from './component/page/create-session/create-session.component';
 
 
 /**
@@ -45,6 +46,7 @@ import { OrderComponent } from './component/page/order/order.component';
     TeaSessionComponent,
     LoginComponent,
     OrderComponent,
+    CreateSessionComponent
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,

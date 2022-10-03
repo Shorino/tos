@@ -18,7 +18,7 @@ trait TeaSessionService {
 
   def get(teaSessionId: Long): TeaSessionHidePasswordBean
 
-  def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Unit
+  def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Long
 
   def modify(teaSessionId: Long, teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Unit
 

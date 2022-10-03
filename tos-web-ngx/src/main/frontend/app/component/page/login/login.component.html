@@ -24,8 +24,8 @@
         </form>
 
         <div>
-            <label *ngIf="signUp == false">Don't have account? <button (click)="signUp = true">Sign Up</button></label>
-            <label *ngIf="signUp">Already have account? <button (click)="signUp = false">Login</button></label>
+            <label *ngIf="signUp == false">Don't have account? <button class="signup-button" (click)="signUp = true">Sign Up</button></label>
+            <label *ngIf="signUp">Already have account? <button class="signup-button" (click)="signUp = false">Login</button></label>
         </div>
     </div>
 </div>

@@ -1,4 +1,7 @@
 <app-search placeholder="Search tea session..." buttonName="Search" (onSearch)="searchTeaSession($event)"></app-search>
+<div class="create-tea-session">
+    <button (click)="goToCreateSession()">Create Tea Session</button>
+</div>
 <ul>
     <li *ngFor="let teaSession of teaSessions">
         <a routerLink="/tea-session/{{teaSession.teaSessionId}}">

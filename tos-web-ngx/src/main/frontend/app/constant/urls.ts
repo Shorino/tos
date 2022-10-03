@@ -9,6 +9,7 @@ export const TEA_SESSION_GET_ALL_SUMMARY_URL = TEA_SESSION_URL + "get-all-summar
 export const TEA_SESSION_GET_PUBLIC_SUMMARY_URL = TEA_SESSION_URL + "get-public-summary";
 export const TEA_SESSION_GET_BY_NAME_URL = TEA_SESSION_URL + "get-by-name";
 export const TEA_SESSION_GET_BY_ID_URL = TEA_SESSION_URL + "get/";
+export const TEA_SESSION_CREATE_URL = TEA_SESSION_URL + "create";
 
 export const ORDER_URL = BASE_URL + "order/";
 export const ORDER_GET_URL = ORDER_URL + "get-all";

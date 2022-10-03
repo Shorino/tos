@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Http } from '@angular/http';
 import { Observable } from "rxjs";
-import { TEA_SESSION_GET_ALL_SUMMARY_URL, TEA_SESSION_GET_BY_ID_URL, TEA_SESSION_GET_BY_NAME_URL, TEA_SESSION_GET_PUBLIC_SUMMARY_URL } from "../constant/urls";
+import { TEA_SESSION_CREATE_URL, TEA_SESSION_GET_ALL_SUMMARY_URL, TEA_SESSION_GET_BY_ID_URL, TEA_SESSION_GET_BY_NAME_URL, TEA_SESSION_GET_PUBLIC_SUMMARY_URL } from "../constant/urls";
 import { Respond } from "../model/Respond";
+import { TeaSessionShowUsername } from "../model/tea-session/TeaSessionShowUsenameBean";
 import { UserCredential } from "../model/user/UserCredential";
 
 @Injectable()
@@ -23,5 +24,9 @@ export class TeaSessionService {
 
   getById(id:number):Observable<Respond>{
     return this.http.post(TEA_SESSION_GET_BY_ID_URL + id, {}).map(res => res.json());
+  }
+
+  create(teaSessionShowUsername:TeaSessionShowUsername):Observable<Respond>{
+    return this.http.post(TEA_SESSION_CREATE_URL, teaSessionShowUsername).map(res => res.json());
   }
 }
