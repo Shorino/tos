@@ -64,3 +64,7 @@ a span {
     width: 100%;
     min-width: 8rem;
 }
+
+.username {
+    text-transform: capitalize;
+}

@@ -7,6 +7,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
+
+
   constructor(private router:Router) {}
 
   ngOnInit(): void {}
@@ -25,5 +27,12 @@ export class HeaderComponent implements OnInit {
       return JSON.parse(localStorage.getItem("TOS_USER_INFO")).isAdmin;
     }
     else return false;
+  }
+
+  get username(){
+    if(this.loginStatus){
+      return JSON.parse(localStorage.getItem("TOS_USER_INFO")).username;
+    }
+    else return null;
   }
 }
