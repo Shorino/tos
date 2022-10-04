@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Http } from '@angular/http';
 import { Observable } from "rxjs";
-import { TEA_SESSION_CREATE_URL, TEA_SESSION_DELETE_ADMIN_URL, TEA_SESSION_DELETE_URL, TEA_SESSION_GET_ALL_SUMMARY_URL, TEA_SESSION_GET_BY_ID_URL, TEA_SESSION_GET_BY_NAME_URL, TEA_SESSION_GET_PUBLIC_SUMMARY_URL, TEA_SESSION_MODIFY_ADMIN_URL, TEA_SESSION_MODIFY_PASSWORD_ADMIN_URL, TEA_SESSION_MODIFY_PASSWORD_URL, TEA_SESSION_MODIFY_URL } from "../constant/urls";
+import { TEA_SESSION_CREATE_URL, TEA_SESSION_DELETE_ADMIN_URL, TEA_SESSION_DELETE_URL, TEA_SESSION_GET_ALL_SUMMARY_URL, TEA_SESSION_GET_BY_ID_URL, TEA_SESSION_GET_BY_NAME_URL, TEA_SESSION_MODIFY_ADMIN_URL, TEA_SESSION_MODIFY_PASSWORD_ADMIN_URL, TEA_SESSION_MODIFY_PASSWORD_URL, TEA_SESSION_MODIFY_URL } from "../constant/urls";
 import { Respond } from "../model/Respond";
 import { TeaSessionChangePassword, TeaSessionChangePasswordAdmin } from "../model/tea-session/TeaSessionChangePassword";
+import { TeaSessionGetByName } from "../model/tea-session/TeaSessionGetByName";
 import { TeaSessionShowUsername } from "../model/tea-session/TeaSessionShowUsenameBean";
 import { UserCredential } from "../model/user/UserCredential";
 
@@ -15,12 +16,8 @@ export class TeaSessionService {
     return this.http.post(TEA_SESSION_GET_ALL_SUMMARY_URL, userCredential).map(res => res.json());
   }
 
-  getPublicSummary():Observable<Respond>{
-    return this.http.post(TEA_SESSION_GET_PUBLIC_SUMMARY_URL, {}).map(res => res.json());
-  }
-
-  getByName(name:string):Observable<Respond>{
-    return this.http.post(TEA_SESSION_GET_BY_NAME_URL, name).map(res => res.json());
+  getByName(teaSessionGetByName:TeaSessionGetByName):Observable<Respond>{
+    return this.http.post(TEA_SESSION_GET_BY_NAME_URL, teaSessionGetByName).map(res => res.json());
   }
 
   getById(id:number):Observable<Respond>{

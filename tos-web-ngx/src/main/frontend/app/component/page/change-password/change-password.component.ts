@@ -31,6 +31,8 @@ export class ChangePasswordComponent implements OnInit {
         .subscribe(response=>{
             if(response.status){
                 alert("Password changed successfully");
+                this.userInfo.password = this.changePasswordForm.controls.newPassword.value;
+                localStorage.setItem("TOS_USER_INFO", JSON.stringify(this.userInfo));
                 this.goToHome();
             }
             else{

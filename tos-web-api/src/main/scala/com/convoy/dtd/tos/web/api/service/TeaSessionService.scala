@@ -1,6 +1,6 @@
 package com.convoy.dtd.tos.web.api.service
 
-import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionBean, TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionHidePasswordBean, TeaSessionShowUsernameBean, TeaSessionSummaryBean}
+import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionBean, TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionGetByNameBean, TeaSessionHidePasswordBean, TeaSessionShowUsernameBean, TeaSessionSummaryBean}
 import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserCredentialBean}
 
 trait TeaSessionService {
@@ -10,11 +10,11 @@ trait TeaSessionService {
 
   def validateUserAdminPassword(userCredentialBean: UserCredentialBean, callback: UserBean => Unit): Unit
 
+  def validateUsername(userCredentialBean: UserCredentialBean, callback: UserBean => Unit): Unit
+
   def getAllSummary(userCredentialBean: UserCredentialBean): List[TeaSessionSummaryBean]
 
-  def getPublicSummary(): List[TeaSessionSummaryBean]
-
-  def getByName(name:String): List[TeaSessionSummaryBean]
+  def getByName(teaSessionGetByNameBean:TeaSessionGetByNameBean): List[TeaSessionSummaryBean]
 
   def get(teaSessionId: Long): TeaSessionHidePasswordBean
 

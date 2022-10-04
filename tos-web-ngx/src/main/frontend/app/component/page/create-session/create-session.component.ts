@@ -174,6 +174,7 @@ export class CreateSessionComponent implements OnInit {
       )
       .subscribe((response) => {
         this.afterSubmitForm(response, () => {
+          alert("Tea session's password changed successfully");
           this.onBack.emit();
         });
       });

@@ -17,9 +17,14 @@ private[impl] class TeaSessionDaoImpl extends AbstractGenericDao[TeaSessionBean,
     q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.visibility === visibility).fetch().asScala.toList
   }
 
-  override def findByName(name: String): List[TeaSessionBean] = {
+  override def findByName(name: String, isAdmin: Boolean): List[TeaSessionBean] = {
     val q = new JPAQueryFactory(entityManager)
-    q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.name.containsIgnoreCase(name)).fetch().asScala.toList
+    if(isAdmin){
+      q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.name.containsIgnoreCase(name)).fetch().asScala.toList
+    }
+    else{
+      q.selectFrom(QTeaSessionBean).where(QTeaSessionBean.name.containsIgnoreCase(name)).where(QTeaSessionBean.visibility === true).fetch().asScala.toList
+    }
   }
 
   override def getLastId(): Long = {

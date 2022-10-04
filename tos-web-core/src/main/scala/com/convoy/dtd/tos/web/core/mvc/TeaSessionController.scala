@@ -1,6 +1,6 @@
 package com.convoy.dtd.tos.web.core.mvc
 
-import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionBean, TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionShowUsernameBean}
+import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionGetByNameBean, TeaSessionShowUsernameBean}
 import com.convoy.dtd.tos.web.api.entity.Response
 import com.convoy.dtd.tos.web.api.entity.user.UserCredentialBean
 import com.convoy.dtd.tos.web.api.service.TeaSessionService
@@ -25,20 +25,10 @@ private[mvc] class TeaSessionController
     }
   }
 
-  @RequestMapping(value = Array("get-public-summary"))
-  def getPublicSummary(): Response = {
-    try {
-      new Response(teaSessionService.getPublicSummary())
-    }
-    catch {
-      case e: Throwable => new Response(null, false, e.getMessage)
-    }
-  }
-
   @RequestMapping(value = Array("get-by-name"))
-  def getByName(@RequestBody name:String): Response = {
+  def getByName(@RequestBody teaSessionGetByNameBean:TeaSessionGetByNameBean): Response = {
     try {
-      new Response(teaSessionService.getByName(name))
+      new Response(teaSessionService.getByName(teaSessionGetByNameBean))
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)

@@ -1,6 +1,6 @@
 package com.convoy.dtd.tos.web.core.service.impl
 
-import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionBean, TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionHidePasswordBean, TeaSessionShowUsernameBean, TeaSessionSummaryBean}
+import com.convoy.dtd.tos.web.api.entity.teasession.{TeaSessionBean, TeaSessionChangePasswordAdminBean, TeaSessionChangePasswordBean, TeaSessionGetByNameBean, TeaSessionHidePasswordBean, TeaSessionShowUsernameBean, TeaSessionSummaryBean}
 import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserCredentialBean}
 import com.convoy.dtd.tos.web.api.service.TeaSessionService
 import com.convoy.dtd.tos.web.core.dao.{TeaSessionDao, UserDao}
@@ -55,26 +55,49 @@ class TeaSessionServiceImpl extends TeaSessionService {
     else throw new RuntimeException("Username " + userCredentialBean.username + " does not exists")
   }
 
+  override def validateUsername(userCredentialBean: UserCredentialBean, callback: UserBean => Unit): Unit = {
+    if (userCredentialBean.username == null) {
+      callback(new UserBean())
+      return
+    }
+    val userOption = userDao.getByName(userCredentialBean.username)
+    if (userOption.isDefined) {
+      callback(userOption.get)
+    }
+    else throw new RuntimeException("Username " + userCredentialBean.username + " does not exists")
+  }
+
   @Transactional
   override def getAllSummary(userCredentialBean: UserCredentialBean): List[TeaSessionSummaryBean] = {
     var teaSessionBeans: List[TeaSessionSummaryBean] = null
-    validateUserAdminPassword(userCredentialBean, userBeanInDb=>{
-      val teaSessions = teaSessionDao.findAllAsScala()
-      teaSessionBeans = teaSessions.map(teaSession => teaSession.getSummary())
+    validateUsername(userCredentialBean, userBeanInDb=>{
+      if(userBeanInDb.isAdmin){
+        if (userBeanInDb.password != null && userBeanInDb.password != userCredentialBean.password) {
+          throw new RuntimeException("User password mismatch")
+        }
+        val teaSessions = teaSessionDao.findAllAsScala()
+        teaSessionBeans = teaSessions.map(teaSession => teaSession.getSummary())
+      }
+      else{
+        val teaSessions = teaSessionDao.findByVisibility(true)
+        teaSessionBeans = teaSessions.map(teaSession => teaSession.getSummary())
+      }
     })
     teaSessionBeans
   }
 
   @Transactional
-  override def getPublicSummary(): List[TeaSessionSummaryBean] = {
-    var teaSessions = teaSessionDao.findByVisibility(true)
-    teaSessions.map(teaSession => teaSession.getSummary())
-  }
-
-  @Transactional
-  override def getByName(name: String): List[TeaSessionSummaryBean] = {
-    var teaSessions = teaSessionDao.findByName(name)
-    teaSessions.map(teaSession => teaSession.getSummary())
+  override def getByName(teaSessionGetByNameBean: TeaSessionGetByNameBean): List[TeaSessionSummaryBean] = {
+    var teaSessionBeans: List[TeaSessionBean] = null
+    validateUsername(new UserCredentialBean(teaSessionGetByNameBean.username, teaSessionGetByNameBean.password), userBeanInDb => {
+      if (userBeanInDb.isAdmin) {
+        if (userBeanInDb.password != null && userBeanInDb.password != teaSessionGetByNameBean.password) {
+          throw new RuntimeException("User password mismatch")
+        }
+      }
+      teaSessionBeans = teaSessionDao.findByName(teaSessionGetByNameBean.teaSessionName, userBeanInDb.isAdmin)
+    })
+    teaSessionBeans.map(teaSession => teaSession.getSummary())
   }
 
   @Transactional
