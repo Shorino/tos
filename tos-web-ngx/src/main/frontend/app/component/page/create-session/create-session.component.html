@@ -3,8 +3,9 @@
         <label *ngIf="pageMode == 0" class="title">Create Tea Session</label>
         <label *ngIf="pageMode == 1" class="title">Modify Tea Session</label>
         <label *ngIf="pageMode == 2" class="title">Modify Tea Session Password</label>
+        <label *ngIf="pageMode == 3" class="title">Delete Tea Session</label>
 
-        <form *ngIf="pageMode != 2" [formGroup]="createSessionForm" (ngSubmit)="submitCreateTeaSession()">
+        <form *ngIf="pageMode < 2" [formGroup]="createSessionForm" (ngSubmit)="submitCreateTeaSession()">
             <div>
                 <label>Session Name</label>
                 <div>
@@ -60,8 +61,10 @@
                 </div>
             </div>
 
+            
             <button class="submit-button" type="submit" [disabled]="submittingForm">Submit</button>
             <button class="cancel-button" type="button" (click)="back()">Back</button>
+            <button class="cancel-button" type="button" (click)="pageMode = 3">Delete Session</button>
         </form>
 
         <form *ngIf="pageMode == 2" [formGroup]="changePasswordForm" (ngSubmit)="submitChangePassword()">
@@ -79,7 +82,20 @@
                 </div>
             </div>
 
-            <button class="submit-button" type="submit" [disabled]="submittingForm">Submit</button>
+            <button class="submit-button" type="submit" [disabled]="submittingForm">Modify</button>
+            <button class="cancel-button" type="button" (click)="pageMode = 1">Back</button>
+        </form>
+
+        <form *ngIf="pageMode == 3" [formGroup]="deleteSessionForm" (ngSubmit)="submitDeleteTeaSession()">
+            <label *ngIf="userInfo.isAdmin">Proceed to delete?</label>
+            <div *ngIf="!userInfo.isAdmin">
+                <label>Enter tea session's password to proceed</label>
+                <div>
+                    <input type="password" placeholder="Enter password" formControlName="password">
+                </div>
+            </div>
+
+            <button class="submit-button" type="submit" [disabled]="submittingForm">Delete</button>
             <button class="cancel-button" type="button" (click)="pageMode = 1">Back</button>
         </form>
     </div>

@@ -43,9 +43,10 @@ export class TeaSessionService {
     return this.http.post(url + teaSessionId, teaSessionChangePassword).map(res => res.json());
   }
 
-  delete(teaSessionId:number, userCredential:UserCredential|String, isAdmin: boolean = false):Observable<Respond>{
+  delete(teaSessionId:number, userCredential:UserCredential|string, isAdmin: boolean = false):Observable<Respond>{
     let url = TEA_SESSION_DELETE_URL;
     if(isAdmin) url = TEA_SESSION_DELETE_ADMIN_URL;
+    if(!userCredential) userCredential = " ";
     return this.http.post(url + teaSessionId, userCredential).map(res => res.json());
   }
 }

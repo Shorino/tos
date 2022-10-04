@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TeaSessionChangePassword, TeaSessionChangePasswordAdmin } from "../../../model/tea-session/TeaSessionChangePassword";
 import { TeaSessionHidePassword } from "../../../model/tea-session/TeaSessionHidePassword";
 import { TeaSessionShowUsername } from "../../../model/tea-session/TeaSessionShowUsenameBean";
+import { UserCredential } from "../../../model/user/UserCredential";
 import { TeaSessionService } from "../../../service/tea-session.service";
 
 enum PageMode {
@@ -23,6 +24,7 @@ export class CreateSessionComponent implements OnInit {
 
   createSessionForm: FormGroup;
   changePasswordForm: FormGroup;
+  deleteSessionForm: FormGroup;
 
   showSessionNameEmptyError: boolean = false;
   showTreatDateEmptyError: boolean = false;
@@ -85,6 +87,9 @@ export class CreateSessionComponent implements OnInit {
       oldPassword: [null],
       newPassword: [null],
     });
+    this.deleteSessionForm = this.formBuilder.group({
+        password: [null],
+    });
   }
 
   get createSessionFormControl() {
@@ -93,6 +98,10 @@ export class CreateSessionComponent implements OnInit {
 
   get changePasswordFormControl() {
     return this.changePasswordForm.controls;
+  }
+
+  get deleteSessionFormControl(){
+    return this.deleteSessionForm.controls;
   }
 
   submitCreateTeaSession() {
@@ -126,7 +135,7 @@ export class CreateSessionComponent implements OnInit {
     switch (this.pageMode) {
       case PageMode.create: {
         this.teaSessionService.create(teaSession).subscribe((response) => {
-          this.finishCreateOrModify(response, ()=>{
+          this.afterSubmitForm(response, ()=>{
             this.router.navigateByUrl("/tea-session/" + response.data);
           });
         });
@@ -136,7 +145,7 @@ export class CreateSessionComponent implements OnInit {
         this.teaSessionService
           .modify(this.teaSessionInfo.teaSessionId, teaSession, this.userInfo.isAdmin)
           .subscribe((response) => {
-            this.finishCreateOrModify(response, ()=>{
+            this.afterSubmitForm(response, ()=>{
                 this.onBack.emit();
             });
           });
@@ -164,10 +173,24 @@ export class CreateSessionComponent implements OnInit {
         this.userInfo.isAdmin
       )
       .subscribe((response) => {
-        this.finishCreateOrModify(response, () => {
+        this.afterSubmitForm(response, () => {
           this.onBack.emit();
         });
       });
+  }
+
+  submitDeleteTeaSession(){
+    this.submittingForm = true;
+    let userCredential = this.userInfo.isAdmin?
+    new UserCredential(this.userInfo.username, this.userInfo.password):
+    this.deleteSessionFormControl.password.value;
+
+    this.teaSessionService.delete(this.teaSessionInfo.teaSessionId, userCredential, this.userInfo.isAdmin)
+    .subscribe(response=>{
+        this.afterSubmitForm(response, ()=>{
+            this.router.navigateByUrl("/");
+        });
+    });
   }
 
   updateMenu(event: any) {
@@ -192,7 +215,7 @@ export class CreateSessionComponent implements OnInit {
     };
   }
 
-  finishCreateOrModify(response: any, callback = () => {}) {
+  afterSubmitForm(response: any, callback = () => {}) {
     this.submittingForm = false;
     if (response.status) {
         callback();
