@@ -1,6 +1,6 @@
 package com.convoy.dtd.tos.web.core.service.impl
 
-import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserCredentialBean, UserEnableBean}
+import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserChangePasswordBean, UserCredentialBean, UserEnableBean}
 import com.convoy.dtd.tos.web.api.service.UserService
 import com.convoy.dtd.tos.web.core.dao.UserDao
 import org.springframework.stereotype.Service
@@ -77,5 +77,12 @@ class UserServiceImpl extends UserService {
       })
     })
     allUsers
+  }
+
+  @Transactional
+  override def changePassword(userChangePasswordBean: UserChangePasswordBean): Unit = {
+    validateUserPassword(new UserCredentialBean(userChangePasswordBean.username, userChangePasswordBean.password), userBeanInDb=>{
+      userBeanInDb.password = userChangePasswordBean.newPassword
+    });
   }
 }

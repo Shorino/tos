@@ -1,6 +1,6 @@
 package com.convoy.dtd.tos.web.api.service
 
-import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserCredentialBean, UserEnableBean}
+import com.convoy.dtd.tos.web.api.entity.user.{UserBean, UserChangePasswordBean, UserCredentialBean, UserEnableBean}
 
 trait UserService {
   def validateUserPassword(userCredentialBean: UserCredentialBean, callback: UserBean => Unit): Unit
@@ -16,4 +16,6 @@ trait UserService {
   def enable(userEnableBean: UserEnableBean):Unit
 
   def getAllUsers(userCredentialBean: UserCredentialBean):List[UserBean]
+
+  def changePassword(userChangePasswordBean: UserChangePasswordBean):Unit
 }

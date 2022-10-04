@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Http } from '@angular/http';
 import { Observable } from "rxjs";
-import { USER_DELETE_URL, USER_ENABLE_URL, USER_GET_ALL_URL, USER_LOGIN_URL, USER_SIGNUP_URL } from "../constant/urls";
+import { USER_CHANGE_PASSWORD_URL, USER_DELETE_URL, USER_ENABLE_URL, USER_GET_ALL_URL, USER_LOGIN_URL, USER_SIGNUP_URL } from "../constant/urls";
 import { Respond } from "../model/Respond";
+import { UserChangePassword } from "../model/user/UserChangePassword";
 import { UserCredential } from "../model/user/UserCredential";
 import { UserEnable } from "../model/user/UserEnable";
 
@@ -28,5 +29,9 @@ export class UserService {
 
   getAll(userCredential:UserCredential):Observable<Respond>{
     return this.http.post(USER_GET_ALL_URL, userCredential).map(res => res.json());
+  }
+
+  changePassword(userCredential:UserChangePassword):Observable<Respond>{
+    return this.http.post(USER_CHANGE_PASSWORD_URL, userCredential).map(res => res.json());
   }
 }

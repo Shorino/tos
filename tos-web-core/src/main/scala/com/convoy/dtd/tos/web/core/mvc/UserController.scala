@@ -1,7 +1,7 @@
 package com.convoy.dtd.tos.web.core.mvc
 
 import com.convoy.dtd.tos.web.api.entity.Response
-import com.convoy.dtd.tos.web.api.entity.user.{UserCredentialBean, UserEnableBean}
+import com.convoy.dtd.tos.web.api.entity.user.{UserChangePasswordBean, UserCredentialBean, UserEnableBean}
 import com.convoy.dtd.tos.web.api.service.UserService
 import org.springframework.web.bind.annotation.{RequestBody, RequestMapping, RequestMethod, RestController}
 
@@ -60,6 +60,17 @@ private[mvc] class UserController {
   def getAll(@RequestBody userCredentialBean: UserCredentialBean): Response = {
     try {
       new Response(userService.getAllUsers(userCredentialBean))
+    }
+    catch {
+      case e: Throwable => new Response(null, false, e.getMessage)
+    }
+  }
+
+  @RequestMapping(value = Array("change-password"))
+  def changePassword(@RequestBody userChangePasswordBean: UserChangePasswordBean): Response = {
+    try {
+      userService.changePassword(userChangePasswordBean)
+      new Response(null)
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)

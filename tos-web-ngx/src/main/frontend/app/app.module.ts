@@ -27,6 +27,7 @@ import { LoginComponent } from './component/page/login/login.component';
 import { OrderComponent } from './component/page/order/order.component';
 import { CreateSessionComponent } from './component/page/create-session/create-session.component';
 import { ManageUserComponent } from './component/page/manage-user/manage-user.component';
+import { ChangePasswordComponent } from './component/page/change-password/change-password.component';
 
 
 /**
@@ -48,7 +49,8 @@ import { ManageUserComponent } from './component/page/manage-user/manage-user.co
     LoginComponent,
     OrderComponent,
     CreateSessionComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    ChangePasswordComponent
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,
