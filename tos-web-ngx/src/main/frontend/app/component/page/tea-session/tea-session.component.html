@@ -1,4 +1,8 @@
-<div class="container">
+<app-not-found [visible]="teaSession == null"
+    notFoundMessage="Tea session not found"
+    resetLinkText="Go to home"
+></app-not-found>
+<div *ngIf="teaSession != null" class="container">
     <img src="data:image/png;base64,{{teaSession.menu}}" alt="{{teaSession.name}}">
 
     <div *ngIf="pageMode == 0" class="sub-container">

@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/entity/user/UserChangePasswordBean.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/service/UserService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-api/src/main/scala/com/convoy/dtd/tos/web/api/service/UserService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/mvc/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/mvc/UserController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/UserServiceImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-core/src/main/scala/com/convoy/dtd/tos/web/core/service/impl/UserServiceImpl.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/create-session/create-session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/create-session/create-session.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/component/page/tea-session/tea-session.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/tea-session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/service/tea-session.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

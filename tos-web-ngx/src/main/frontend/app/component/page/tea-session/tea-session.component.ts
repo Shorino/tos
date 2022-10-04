@@ -22,7 +22,7 @@ enum PageMode {
   styleUrls: ["./tea-session.component.css"],
 })
 export class TeaSessionComponent implements OnInit {
-    teaSession:TeaSessionHidePassword = new TeaSessionHidePassword();
+    teaSession:TeaSessionHidePassword = null;
     canPlaceOrder:boolean = true;
     pageMode:PageMode = PageMode.view;
 
@@ -97,6 +97,9 @@ export class TeaSessionComponent implements OnInit {
 
           if(new Date() > this.teaSession.cutOffDate) this.canPlaceOrder = false;
           else this.canPlaceOrder = true;
+        }
+        else{
+          this.teaSession = null;
         }
       });
     }
