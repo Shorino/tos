@@ -14,4 +14,6 @@ trait UserService {
   def delete(userCredentialBean: UserCredentialBean):Unit
 
   def enable(userEnableBean: UserEnableBean):Unit
+
+  def getAllUsers(userCredentialBean: UserCredentialBean):List[UserBean]
 }

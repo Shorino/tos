@@ -1,0 +1,24 @@
+<div class="title">
+    <label>User List</label>
+</div>
+
+<div class="container">
+    <ul>
+        <li *ngFor="let user of users">
+            <div>
+                <b>Username: </b>
+                <span>{{user.username}}</span>
+            </div>
+
+            <div>
+                <b>Last Login Date: </b>
+                <span>{{user.lastLoginDate}}</span>
+            </div>
+
+            <div>
+                <b>Enable: </b>
+                <input type="checkbox" [checked]="user.enable" (change)="enableUser(user.username, $event.target.checked)">
+            </div>
+        </li>
+    </ul>
+</div>

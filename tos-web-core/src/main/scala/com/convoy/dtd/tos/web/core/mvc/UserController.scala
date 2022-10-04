@@ -14,9 +14,9 @@ private[mvc] class UserController {
   private var userService: UserService = _
 
   @RequestMapping(value = Array("create"))
-  def create(@RequestBody userCreationBean: UserCredentialBean): Response = {
+  def create(@RequestBody userCredentialBean: UserCredentialBean): Response = {
     try {
-      userService.create(userCreationBean)
+      userService.create(userCredentialBean)
       new Response(null)
     }
     catch{
@@ -25,9 +25,9 @@ private[mvc] class UserController {
   }
 
   @RequestMapping(value = Array("login"))
-  def login(@RequestBody userCreationBean: UserCredentialBean): Response = {
+  def login(@RequestBody userCredentialBean: UserCredentialBean): Response = {
     try {
-      new Response(userService.login(userCreationBean))
+      new Response(userService.login(userCredentialBean))
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)
@@ -35,9 +35,9 @@ private[mvc] class UserController {
   }
 
   @RequestMapping(value = Array("delete"))
-  def delete(@RequestBody userCreationBean: UserCredentialBean): Response = {
+  def delete(@RequestBody userCredentialBean: UserCredentialBean): Response = {
     try {
-      userService.delete(userCreationBean)
+      userService.delete(userCredentialBean)
       new Response(null)
     }
     catch {
@@ -50,6 +50,16 @@ private[mvc] class UserController {
     try {
       userService.enable(userLockBean)
       new Response(null)
+    }
+    catch {
+      case e: Throwable => new Response(null, false, e.getMessage)
+    }
+  }
+
+  @RequestMapping(value = Array("get-all"))
+  def getAll(@RequestBody userCredentialBean: UserCredentialBean): Response = {
+    try {
+      new Response(userService.getAllUsers(userCredentialBean))
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)

@@ -43,4 +43,9 @@ class UserBean {
     println("lastLoginDate: " + lastLoginDate)
     println("isAdmin: " + isAdmin)
   }
+
+  def hidePassword(): UserBean = {
+    password = null
+    this
+  }
 }

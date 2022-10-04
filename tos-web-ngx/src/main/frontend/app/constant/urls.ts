@@ -3,6 +3,9 @@ const BASE_URL = "http://localhost:50001/tos-rest/";
 export const USER_URL = BASE_URL + "user/";
 export const USER_LOGIN_URL = USER_URL + "login";
 export const USER_SIGNUP_URL = USER_URL + "create";
+export const USER_ENABLE_URL = USER_URL + "enable";
+export const USER_DELETE_URL = USER_URL + "delete";
+export const USER_GET_ALL_URL = USER_URL + "get-all";
 
 export const TEA_SESSION_URL = BASE_URL + "tea-session/";
 export const TEA_SESSION_GET_ALL_SUMMARY_URL = TEA_SESSION_URL + "get-all-summary";

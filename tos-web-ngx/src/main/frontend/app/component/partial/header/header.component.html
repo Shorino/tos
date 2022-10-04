@@ -11,7 +11,7 @@
                     <a class="username" *ngIf="loginStatus">User ({{username}})</a>
                     <div class="menu">
                         <a routerLink="/change-password">Change Password</a>
-                        <a *ngIf="isAdmin" routerLink="/manage-users">Manage Users</a>
+                        <a *ngIf="isAdmin" routerLink="/manage-user">Manage Users</a>
                         <a (click)="removeLoginInfo()">Logout</a>
                     </div>
                 </li>

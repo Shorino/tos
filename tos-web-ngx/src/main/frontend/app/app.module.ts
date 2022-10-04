@@ -26,6 +26,7 @@ import { TeaSessionComponent } from './component/page/tea-session/tea-session.co
 import { LoginComponent } from './component/page/login/login.component';
 import { OrderComponent } from './component/page/order/order.component';
 import { CreateSessionComponent } from './component/page/create-session/create-session.component';
+import { ManageUserComponent } from './component/page/manage-user/manage-user.component';
 
 
 /**
@@ -46,7 +47,8 @@ import { CreateSessionComponent } from './component/page/create-session/create-s
     TeaSessionComponent,
     LoginComponent,
     OrderComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    ManageUserComponent
   ],
   imports: [ /** import Angular's modules **/
     BrowserModule,

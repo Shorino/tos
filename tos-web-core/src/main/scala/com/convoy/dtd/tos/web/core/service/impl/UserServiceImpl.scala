@@ -67,4 +67,15 @@ class UserServiceImpl extends UserService {
       })
     })
   }
+
+  @Transactional(readOnly = true)
+  override def getAllUsers(userCredentialBean: UserCredentialBean): List[UserBean] = {
+    var allUsers:List[UserBean] = null
+    validateUserPassword(userCredentialBean, userBeanInDb => {
+      validateUserAdmin(userBeanInDb, () => {
+        allUsers = userDao.findAllAsScala().map(user=> user.hidePassword())
+      })
+    })
+    allUsers
+  }
 }
