@@ -2,13 +2,19 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { EventData } from "../../../model/order/EventData";
+import { EventData } from "../../../model/EventData";
 import { OrderMod } from "../../../model/order/OrderMod";
 import { Respond } from "../../../model/Respond";
 import { TeaSessionHidePassword } from "../../../model/tea-session/TeaSessionHidePassword";
 import { EventService } from "../../../service/event.service";
 import { OrderService } from "../../../service/order.service";
 import { TeaSessionService } from "../../../service/tea-session.service";
+
+enum PageMode {
+  view,
+  edit,
+  placeOrder,
+}
 
 @Component({
   selector: "app-tea-session",
@@ -18,7 +24,7 @@ import { TeaSessionService } from "../../../service/tea-session.service";
 export class TeaSessionComponent implements OnInit {
     teaSession:TeaSessionHidePassword = new TeaSessionHidePassword();
     canPlaceOrder:boolean = true;
-    placingOrder:boolean = false;
+    pageMode:PageMode = PageMode.view;
 
     orderForm:FormGroup;
     showItemNameEmptyError:boolean = false;
@@ -27,7 +33,7 @@ export class TeaSessionComponent implements OnInit {
 
     userInfo:any = null;
 
-    constructor(activatedRoute:ActivatedRoute, 
+    constructor(private activatedRoute:ActivatedRoute, 
       private teaSessionService:TeaSessionService,
       private orderService:OrderService,
       private formBuilder:FormBuilder,
@@ -35,21 +41,10 @@ export class TeaSessionComponent implements OnInit {
       private eventService:EventService){
         this.userInfo = JSON.parse(localStorage.getItem("TOS_USER_INFO"));
 
-        let observable:Observable<Respond>;
-        activatedRoute.params.subscribe(params=>{
+        this.activatedRoute.params.subscribe(params=>{
             if(params.teaSessionId){
-                observable = this.teaSessionService.getById(params.teaSessionId);
+                this.refreshDetails(params.teaSessionId);
             }
-            observable.subscribe((response) => {
-              if (response.status) {
-                this.teaSession = response.data;
-                this.teaSession.treatDate = new Date(this.teaSession.treatDate);
-                this.teaSession.cutOffDate = new Date(this.teaSession.cutOffDate);
-
-                if(new Date() > this.teaSession.cutOffDate) this.canPlaceOrder = false;
-                else this.canPlaceOrder = true;
-              }
-            });
         });
 
         this.orderForm = this.formBuilder.group({
@@ -93,7 +88,25 @@ export class TeaSessionComponent implements OnInit {
       });
     }
     
+    refreshDetails(teaSessionId:number){
+      this.teaSessionService.getById(teaSessionId).subscribe(response=>{
+        if (response.status) {
+          this.teaSession = response.data;
+          this.teaSession.treatDate = new Date(this.teaSession.treatDate);
+          this.teaSession.cutOffDate = new Date(this.teaSession.cutOffDate);
+
+          if(new Date() > this.teaSession.cutOffDate) this.canPlaceOrder = false;
+          else this.canPlaceOrder = true;
+        }
+      });
+    }
+
     goToHomePage(){
       this.router.navigateByUrl("/");
+    }
+
+    goToViewSubPage(){
+      this.pageMode = PageMode.view;
+      this.refreshDetails(this.teaSession.teaSessionId);
     }
 }

@@ -58,7 +58,6 @@ private[mvc] class TeaSessionController
   @RequestMapping(value = Array("create"))
   def create(@RequestBody teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Response = {
     try {
-
       new Response(teaSessionService.create(teaSessionShowUsernameBean))
     } catch {
       case e: Throwable => new Response(null, false, e.getMessage)
@@ -68,8 +67,7 @@ private[mvc] class TeaSessionController
   @RequestMapping(value = Array("modify/{teaSessionId}"))
   def modify(@PathVariable("teaSessionId") teaSessionId: Long, @RequestBody teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Response = {
     try {
-      teaSessionService.modify(teaSessionId, teaSessionShowUsernameBean)
-      new Response(null)
+      new Response(teaSessionService.modify(teaSessionId, teaSessionShowUsernameBean))
     }
     catch {
       case e: Throwable => new Response(null, false, e.getMessage)

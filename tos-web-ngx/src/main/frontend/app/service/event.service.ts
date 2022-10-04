@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import { EventData } from "../model/order/EventData";
+import { EventData } from "../model/EventData";
 
 @Injectable()
 export class EventService {

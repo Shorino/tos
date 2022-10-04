@@ -1,7 +1,7 @@
 <div class="container">
     <img src="data:image/png;base64,{{teaSession.menu}}" alt="{{teaSession.name}}">
 
-    <div *ngIf="!placingOrder" class="sub-container">
+    <div *ngIf="pageMode == 0" class="sub-container">
         <div class="title">
             <span>{{teaSession.name}}</span>
         </div>
@@ -20,11 +20,12 @@
         <div class="visibility">
             <span>{{teaSession.visibility?"Public":"Private"}}</span>
         </div>
-        <button class="submit-button" (click)="placingOrder = true" *ngIf="canPlaceOrder && userInfo">Place Order</button>
+        <button class="submit-button" (click)="pageMode = 1" *ngIf="canPlaceOrder && userInfo">Place Order</button>
+        <button class="submit-button" (click)="pageMode = 2" *ngIf="userInfo">Edit Session</button>
         <button class="cancel-button" type="reset" (click)="goToHomePage()">Back</button>
     </div>
 
-    <div *ngIf="placingOrder && userInfo" class="sub-container">
+    <div *ngIf="pageMode == 1 && userInfo" class="sub-container">
         <div class="order-list">
             <app-order></app-order>
         </div>
@@ -49,6 +50,10 @@
         </form>
         
         <button class="submit-button" (click)="submitOrder()" *ngIf="canPlaceOrder">Add To Order</button>
-        <button class="cancel-button" (click)="placingOrder=false">Back</button>
+        <button class="cancel-button" (click)="pageMode = 0">Back</button>
+    </div>
+
+    <div *ngIf="pageMode == 2" class="sub-container">
+        <app-create-session pageMode = "{{1}}" (onBack)="goToViewSubPage()"></app-create-session>
     </div>
 </div>

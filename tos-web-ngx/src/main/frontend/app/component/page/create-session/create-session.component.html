@@ -1,8 +1,10 @@
 <div class="container">
     <div class="details">
-        <label class="title">Create Tea Session</label>
+        <label *ngIf="pageMode == 0" class="title">Create Tea Session</label>
+        <label *ngIf="pageMode == 1" class="title">Modify Tea Session</label>
+        <label *ngIf="pageMode == 2" class="title">Modify Tea Session Password</label>
 
-        <form [formGroup]="createSessionForm" (ngSubmit)="submitCreateTeaSession()">
+        <form *ngIf="pageMode != 2" [formGroup]="createSessionForm" (ngSubmit)="submitCreateTeaSession()">
             <div>
                 <label>Session Name</label>
                 <div>
@@ -15,6 +17,9 @@
                 <label>Password</label>
                 <div>
                     <input type="password" placeholder="Enter tea session password" formControlName="password">
+                </div>
+                <div *ngIf="pageMode == 1">
+                    Change tea session password? <button class="edit-button" type="button" (click)="pageMode = 2">Edit Password</button>
                 </div>
             </div>
 
@@ -50,15 +55,32 @@
             <div>
                 <label>Upload Menu</label>
                 <input type="file" accept="image/*" (input)="updateMenu($event)">
+                <div>
+                    <span class="error-message" *ngIf="showMenuEmptyError">Menu shouldn't be empty</span>
+                </div>
             </div>
-            <span class="error-message" *ngIf="showMenuEmptyError">Menu shouldn't be empty</span>
 
             <button class="submit-button" type="submit" [disabled]="submittingForm">Submit</button>
+            <button class="cancel-button" type="button" (click)="back()">Back</button>
         </form>
 
-        <div>
-            <label *ngIf="signUp == false">Don't have account? <button (click)="signUp = true">Sign Up</button></label>
-            <label *ngIf="signUp">Already have account? <button (click)="signUp = false">Login</button></label>
-        </div>
+        <form *ngIf="pageMode == 2" [formGroup]="changePasswordForm" (ngSubmit)="submitChangePassword()">
+            <div *ngIf="!userInfo.isAdmin">
+                <label>Old Password</label>
+                <div>
+                    <input type="password" placeholder="Enter old password" formControlName="oldPassword">
+                </div>
+            </div>
+
+            <div>
+                <label>New Password</label>
+                <div>
+                    <input type="password" placeholder="Enter new password" formControlName="newPassword">
+                </div>
+            </div>
+
+            <button class="submit-button" type="submit" [disabled]="submittingForm">Submit</button>
+            <button class="cancel-button" type="button" (click)="pageMode = 1">Back</button>
+        </form>
     </div>
 </div>

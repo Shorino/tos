@@ -20,7 +20,7 @@ trait TeaSessionService {
 
   def create(teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Long
 
-  def modify(teaSessionId: Long, teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Unit
+  def modify(teaSessionId: Long, teaSessionShowUsernameBean: TeaSessionShowUsernameBean): Long
 
   def modifyPassword(teaSessionId: Long, teaSessionChangePasswordBean: TeaSessionChangePasswordBean): Unit
 

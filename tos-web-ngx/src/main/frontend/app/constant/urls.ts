@@ -10,6 +10,12 @@ export const TEA_SESSION_GET_PUBLIC_SUMMARY_URL = TEA_SESSION_URL + "get-public-
 export const TEA_SESSION_GET_BY_NAME_URL = TEA_SESSION_URL + "get-by-name";
 export const TEA_SESSION_GET_BY_ID_URL = TEA_SESSION_URL + "get/";
 export const TEA_SESSION_CREATE_URL = TEA_SESSION_URL + "create";
+export const TEA_SESSION_MODIFY_URL = TEA_SESSION_URL + "modify/";
+export const TEA_SESSION_MODIFY_ADMIN_URL = TEA_SESSION_URL + "modify-admin/";
+export const TEA_SESSION_MODIFY_PASSWORD_URL = TEA_SESSION_URL + "modify-password/";
+export const TEA_SESSION_MODIFY_PASSWORD_ADMIN_URL = TEA_SESSION_URL + "modify-password-admin/";
+export const TEA_SESSION_DELETE_URL = TEA_SESSION_URL + "delele/";
+export const TEA_SESSION_DELETE_ADMIN_URL = TEA_SESSION_URL + "delele-admin/";
 
 export const ORDER_URL = BASE_URL + "order/";
 export const ORDER_GET_URL = ORDER_URL + "get-all";

@@ -24,7 +24,7 @@ export class OrderComponent implements OnInit {
       activatedRoute:ActivatedRoute,
       router:Router){
       this.userInfo = JSON.parse(localStorage.getItem("TOS_USER_INFO"));
-      if(!this.userInfo) router.navigateByUrl("/");
+      if(!this.userInfo) router.navigateByUrl("/login");
 
       activatedRoute.params.subscribe(params=>{
         if(params.teaSessionId) this.teaSessionId = params.teaSessionId
