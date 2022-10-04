@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="" />
+    <list default="true" id="fa925fbe-3ee7-4fd3-a823-b1009b9f89bb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tos-web-ngx/src/main/frontend/app/app.routes.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +275,7 @@
       <workItem from="1664154493270" duration="349000" />
       <workItem from="1664154881295" duration="1177000" />
       <workItem from="1664156321599" duration="7241000" />
-      <workItem from="1664760889629" duration="24105000" />
+      <workItem from="1664760889629" duration="24276000" />
     </task>
     <servers />
   </component>

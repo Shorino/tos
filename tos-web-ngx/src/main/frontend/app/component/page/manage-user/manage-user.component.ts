@@ -24,7 +24,6 @@ export class ManageUserComponent implements OnInit {
                 this.users.forEach(user => {
                     user.lastLoginDate = new Date(user.lastLoginDate);
                 });
-                console.log(this.users);
             }
         });
     }
