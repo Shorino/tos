@@ -2,6 +2,9 @@
 <div class="create-tea-session">
     <button (click)="goToCreateSession()">Create Tea Session</button>
 </div>
+<app-not-found [visible]="teaSessions.length == 0"
+notFoundMessage="Tea session not found"
+resetLinkText="Back"></app-not-found>
 <ul>
     <li *ngFor="let teaSession of teaSessions">
         <a routerLink="/tea-session/{{teaSession.teaSessionId}}">
